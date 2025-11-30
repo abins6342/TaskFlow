@@ -20,14 +20,15 @@ namespace User_Service.Controllers
         public async Task<IActionResult> RegisterUserDto(RegisterUserDto registerUserDto)
         {
             var result = await _userService.RegisterUser(registerUserDto);
-            return Ok(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpPost("Login")]
+        [HttpPost]
+        [Route("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
-            var token = await _userService.Login(loginDto);
-            return Ok(token);
+            var result = await _userService.Login(loginDto);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
     }
 }

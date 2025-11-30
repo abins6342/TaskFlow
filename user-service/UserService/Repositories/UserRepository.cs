@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using User_Service.Db;
-using User_Service.DTOs;
 using User_Service.Entities;
 using User_Service.Interfaces;
 
